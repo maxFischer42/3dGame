@@ -14,7 +14,7 @@ public class playerShoot: MonoBehaviour {
 
 	public Transform gunEnd;
 
-
+	public ParticleEmitter part;
 
 
 
