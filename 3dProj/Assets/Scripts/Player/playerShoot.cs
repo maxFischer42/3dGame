@@ -14,7 +14,9 @@ public class playerShoot: MonoBehaviour {
 
 	public Transform gunEnd;
 
-	public ParticleEmitter part;
+	public ParticleSystem part;
+
+	private ParticleSystem Laser;
 
 
 
@@ -27,6 +29,8 @@ public class playerShoot: MonoBehaviour {
 	private LineRenderer laserLine;
 
 	private float nextFire; 
+
+	public GameObject bulletEmitterPrefab;
 
 
 
@@ -41,17 +45,26 @@ public class playerShoot: MonoBehaviour {
 	{
 
 		if (Input.GetButtonDown ("Fire1") && Time.time > nextFire) 
-
 		{
+			part.Play ();
+
+			GameObject bullet = (GameObject) Instantiate (bulletEmitterPrefab, transform.position, transform.rotation);
+			string name = bulletEmitterPrefab.name + "(Clone)";
+			GameObject.Find (name).transform.parent = null;
+			Laser = bullet.GetComponent<ParticleSystem> ();
+			Laser.Play ();
 
 			nextFire = Time.time + fireRate;
 			StartCoroutine(ShotEffect());
+			DestroyParticle (bullet);
 			Vector3 rayOrigin = fpsCam.ViewportToWorldPoint (new Vector3 (.5f, .5f, 0));
 			RaycastHit hit;
 			laserLine.SetPosition(0, gunEnd.position);
 			if (Physics.Raycast(rayOrigin,fpsCam.transform.forward, out hit, weaponRange))
 			{
+				
 				laserLine.SetPosition (1, hit.point);
+				Debug.Log (hit.collider.gameObject.name);
 			}
 			else
 
@@ -67,6 +80,11 @@ public class playerShoot: MonoBehaviour {
 	}
 
 
+	private IEnumerator DestroyParticle(GameObject bullet)
+	{
+		yield return shotDuration;
+		Destroy (bullet);
+	}
 
 
 	private IEnumerator ShotEffect()
