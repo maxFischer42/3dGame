@@ -65,6 +65,10 @@ public class playerShoot: MonoBehaviour {
 				
 				laserLine.SetPosition (1, hit.point);
 				Debug.Log (hit.collider.gameObject.name);
+				if(hit.collider.GetComponent<enemyHealthHandler>())
+					{
+					hit.collider.GetComponent<enemyHealthHandler> ().maxHP--;
+					}
 			}
 			else
 

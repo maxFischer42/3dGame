@@ -16,6 +16,7 @@ public class enemyShoot : MonoBehaviour {
 
 	public float coolDown = 2f;
 	float cooldowntimer = 0;
+	public AudioSource audi;
 
 	
 	// Update is called once per frame
@@ -31,11 +32,15 @@ public class enemyShoot : MonoBehaviour {
 			Debug.Log (hit.collider.gameObject.name);
 			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer)
 			{
+				audi.Play ();
 				cooldowntimer = 0f;
 				Vector3 direction = GameObject.FindGameObjectWithTag ("Player").transform.position - transform.position;
 				direction *= bulletSpeed;
 				GameObject bulletToSpawn = (GameObject) Instantiate (bullet, transform.position, transform.rotation);
 				bulletToSpawn.GetComponent<Rigidbody> ().velocity = direction;
+				Vector3 newDir = Vector3.RotateTowards (transform.forward, direction, 1f, 0.0f);
+				bulletToSpawn.transform.rotation = Quaternion.LookRotation (newDir);
+				Destroy (bulletToSpawn, 5f);
 			}
 		}
 	}
