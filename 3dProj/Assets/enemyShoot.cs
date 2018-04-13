@@ -29,7 +29,7 @@ public class enemyShoot : MonoBehaviour {
 		if (Physics.Raycast(rayOrigin,barrelEnd.transform.forward, out hit, range))
 		{
 			laserLine.SetPosition (1, hit.point);
-			Debug.Log (hit.collider.gameObject.name);
+			//Debug.Log (hit.collider.gameObject.name);
 			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer)
 			{
 				audi.Play ();
