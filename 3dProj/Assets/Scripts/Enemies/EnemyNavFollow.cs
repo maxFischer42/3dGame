@@ -38,16 +38,16 @@ public class EnemyNavFollow : MonoBehaviour {
         agent.destination = player.position;
 	}
 
+
 	void OnTriggerEnter(Collider Coll)
 	{
 		if (Coll.transform == player) {
 			isChasingPoint = false;
-		} else if (Coll.transform.name == "PlayerVisionCone" || Coll.transform.name == "footStepRadius") {
-
+		} else {
 			Vector3 rayOrigin = transform.position;
 			RaycastHit hit;
 			laserLine.SetPosition(0, rayOrigin);
-			if (Physics.Raycast(rayOrigin,GameObject.Find("Player").transform.position - transform.position, out hit, 999f))
+			if (Physics.Raycast(rayOrigin,GameObject.Find("Player").transform.position - transform.position, out hit, 250f))
 			{
 				laserLine.SetPosition (1, hit.point);
 				if (hit.transform.gameObject.tag == "Player") {
@@ -55,8 +55,6 @@ public class EnemyNavFollow : MonoBehaviour {
 					shootScript.enabled = true;
 				}
 			}
-
-
 		}
 	}
 
@@ -65,6 +63,7 @@ public class EnemyNavFollow : MonoBehaviour {
 		if (Coll.transform.name == "footStepRadius") {
 			priorityPlayer = false;
 			shootScript.enabled = false;
+			isChasingPoint = false;
 		}
 	}
 }

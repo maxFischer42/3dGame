@@ -18,6 +18,13 @@ public class enemyShoot : MonoBehaviour {
 	float cooldowntimer = 0;
 	public AudioSource audi;
 
+	private EnemyNavFollow nav;
+
+	void Start()
+	{
+		nav = transform.parent.GetComponent<EnemyNavFollow> ();
+	}
+
 	
 	// Update is called once per frame
 	void Update ()
@@ -30,7 +37,7 @@ public class enemyShoot : MonoBehaviour {
 		{
 			laserLine.SetPosition (1, hit.point);
 			//Debug.Log (hit.collider.gameObject.name);
-			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer)
+			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer && nav.priorityPlayer)
 			{
 				audi.Play ();
 				cooldowntimer = 0f;
@@ -44,4 +51,6 @@ public class enemyShoot : MonoBehaviour {
 			}
 		}
 	}
+
+
 }
