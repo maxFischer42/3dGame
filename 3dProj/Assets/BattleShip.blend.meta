@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 09686e19d17845044a968f702fa07ed3
-timeCreated: 1523652887
-=======
-guid: e1c9bfcadc5234c42a0aa7ec3f1f9f1e
-timeCreated: 1523682851
->>>>>>> 0a3665d05a643146db4888630c670fd3945ce187
+guid: 0dbb306fe60b6064f8ef3bf7e7d32ac3
+timeCreated: 1523905772
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: None__EnemyDroneUVMap_png
+    2100000: Material__BattleShipUVMAP_png
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Icosphere
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
