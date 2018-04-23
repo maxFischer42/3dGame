@@ -8,6 +8,7 @@ public class unlockGun : MonoBehaviour {
 	public Text textObj;
 	public Behaviour behaviourToActivate;
 	public GameObject gameObjectToActivate;
+	public GameObject[] objectsToDeactivate;
 	public string textToDisplay;
 
 	void OnTriggerEnter(Collider coll)
@@ -41,6 +42,10 @@ public class unlockGun : MonoBehaviour {
 			if (gameObjectToActivate != null)
 				gameObjectToActivate.SetActive (true);
 
+			for(int i = 0;i < objectsToDeactivate.Length; i++)
+			{
+				objectsToDeactivate [i].SetActive (false);
+			}
 			Destroy (transform.parent.gameObject);
 		}
 	}

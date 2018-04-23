@@ -44,7 +44,7 @@ public class playerShoot: MonoBehaviour {
 	void Update () 
 	{
 
-		if (Input.GetButtonDown ("Fire1") && Time.time > nextFire) 
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
 		{
 			part.Play ();
 

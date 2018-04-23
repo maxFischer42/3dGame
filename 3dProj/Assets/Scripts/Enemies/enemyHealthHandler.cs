@@ -19,6 +19,9 @@ public class enemyHealthHandler : MonoBehaviour {
 			Destroy (gameObject);
 		} else if (maxHP <= 0 && isShield) {
 			shieldScript.hp--;
+			GameObject wreck = (GameObject)Instantiate (wreckage, transform.position, Quaternion.identity);
+			wreck.transform.parent = null;
+			Destroy (gameObject);
 		}
 	}
 

@@ -10,7 +10,7 @@ public class shieldHealth : MonoBehaviour {
 
 	public void Update()
 	{
-		if (hp == 0) {
+		if (hp <= 0) {
 			explosion();
 		}
 	}
