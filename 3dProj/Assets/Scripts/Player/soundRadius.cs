@@ -10,7 +10,9 @@ public class soundRadius : MonoBehaviour {
 	public SphereCollider radius;
 	public float walkSize = 5f;
 	public float runSize = 10f;
-	public bool isRunning;
+    public float crouchSize = 1f;
+    public bool isRunning;
+    public bool isCrouched;
 
 	float timer;
 	[Tooltip("time inbetween step sounds")]
@@ -36,7 +38,13 @@ public class soundRadius : MonoBehaviour {
 			playSound (footSteps [3]);
 			timer = 0;
 		}
-	}
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            radius.radius = crouchSize;
+            isCrouched = true;
+        }
+    }
 
 	void playSound(AudioClip sound)
 	{
