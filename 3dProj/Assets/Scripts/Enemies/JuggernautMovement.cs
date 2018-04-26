@@ -16,6 +16,14 @@ public class JuggernautMovement : MonoBehaviour {
 	public LineRenderer bigBeam;
 	Transform prevPoint;
 	float timer = 0;
+	public bool playerInRange = false;
+	public bool beingUsed;
+	bool step1;
+	bool step2;
+	bool step3;
+	public GameObject beamOBJ;
+	public Light[] lights;
+
 
 	// Use this for initialization
 	void Start ()
@@ -26,19 +34,74 @@ public class JuggernautMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		Debug.Log (step1 +"" + step2 + "" + step3);
 		timerPlus ();
-		playerVisible = checkForPlayer ();
-		if (playerVisible) {
-			Stop ();
-
-		} else {
-			timer = 0;
-			if (target == null) {
-				target = points [0];
+		if (!beingUsed) {
+			playerVisible = checkForPlayer ();
+			if (playerVisible && playerInRange) {
+				timer = 0;
+				Stop ();				
+			} else {
+				timer = 0;
+				if (target == null) {
+					target = points [0];
+				}
+				agent.destination = target.position;
 			}
-			agent.destination = target.position;
-		}
+		} else {
 
+
+			for (int i = 0; i < lights.Length; i++) {
+				lights [i].intensity += 0.1f;
+			}
+
+
+
+			Vector3 targetDir = GameObject.Find("Player").transform.position - transform.position;
+			float step = lookSpeed * Time.deltaTime;
+			Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0.0f);
+
+			if (!playerVisible) {
+				beingUsed = false;
+				step1 = false;
+				step2 = false;
+				step3 = false;
+			}
+
+			if (!step1) {
+				Debug.Log ("Target Acquired");
+				//wait 1 second
+				if (timer > 1) {
+					timer = 0;
+
+					Arm ();
+				}
+			} else if (!step2) {
+				//wait 1 second
+				if (timer > 2) {
+					timer = 0;
+					shoot ();
+				}
+			} else if (!step3) {
+				if (timer > 3) {
+					beamOBJ.SetActive (false);
+					Debug.Log ("deacticating");
+					step1 = false;
+					step2 = false;
+					beingUsed = false;
+					playerVisible = false;
+					playerInRange = false;
+					timer = 0;
+					for (int i = 0; i < lights.Length; i++) {
+						lights [i].intensity = 1f;
+					}
+				}
+			}
+
+
+
+
+		}
 	}
 
 
@@ -54,39 +117,18 @@ public class JuggernautMovement : MonoBehaviour {
 	{
 		agent.destination = transform.position;
 		target = null;
-		Vector3 targetDir = GameObject.Find("Player").transform.position - transform.position;
-		float step = lookSpeed * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0.0f);
-		//wait 1 second
-		if (timer > 5) {
-			timer = 0;
-			Debug.Log ("Target Acquired");
-			Arm ();
-		}
+		beingUsed = true;
+		step1 = false;
+		step2 = false;
+		step3 = false;
 	}
 
 	//is called when player is visible for more than 1 second
 	void Arm()
 	{
-		Vector3 rayOrigin = transform.position;
-		RaycastHit hit;
-		beam.SetPosition(0, rayOrigin);
-		if (Physics.Raycast(rayOrigin,GameObject.Find("Player").transform.position - transform.position, out hit, 250f))
-		{
-			beam.SetPosition (1, hit.point);
-			if (hit.transform.gameObject.tag == "Player") {
-				Debug.Log ("Arming...");
-			
-				//wait 1 second
-				if (timer > 9) {
-					timer = 0;
-					shoot ();
-				}
+		step1 = true;
 
-			} else {
-				playerVisible = false;
-			}
-		}
+		Debug.Log ("Arming...");
 	}
 
 	//is called when the object reaches it's target
@@ -94,7 +136,7 @@ public class JuggernautMovement : MonoBehaviour {
 	{
 		//GetComponent<Rigidbody> ().velocity = Vector3.zero;
 		//transform.rotation = Quaternion.identity;
-		int rand = Random.Range (0, points.Length - 1);
+		int rand = Random.Range (0, points.Length);
 		if (points [rand] != prevPoint) {
 			target = points [rand];
 		} else {
@@ -105,31 +147,37 @@ public class JuggernautMovement : MonoBehaviour {
 	//is called when the object reaches a movement point
 	void OnTriggerEnter(Collider coll)
 	{
-		if (!playerVisible && coll.gameObject.transform == target.gameObject.transform) {
-			changeTarget ();
+		if (!beingUsed) {
+			if (coll.gameObject.transform == target.gameObject.transform) {
+				changeTarget ();
+			}
 		}
+
 	}
 
 
 	void shoot()
 	{
-		
+		step2 = true;
+		beamOBJ.SetActive (true);
 	}
 
-	bool checkForPlayer()
+	public bool checkForPlayer()
 	{
 		Vector3 rayOrigin = transform.position;
 		RaycastHit hit;
 		laserLine.SetPosition(0, rayOrigin);
-		if (Physics.Raycast (rayOrigin, GameObject.Find ("Player").transform.position - transform.position, out hit, 250f)) {
+		if (Physics.Raycast (rayOrigin, GameObject.Find ("Player").transform.position - transform.position, out hit)) {
 			laserLine.SetPosition (1, hit.point);
 			if (hit.transform.gameObject.tag == "Player") {
 				return true;
 				Debug.Log ("Player Noticed");
 			} else {
+				playerInRange = false;
 				return false;
 			}
 		} else {
+			playerInRange = false;
 			return false;
 		}
 	}
