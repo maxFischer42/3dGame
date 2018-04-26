@@ -21,7 +21,7 @@ public class JuggernautMovement : MonoBehaviour {
 	bool step1;
 	bool step2;
 	bool step3;
-	public GameObject beamOBJ;
+	public GameObject[] beamOBJ;
 	public Light[] lights;
 
 
@@ -84,7 +84,9 @@ public class JuggernautMovement : MonoBehaviour {
 				}
 			} else if (!step3) {
 				if (timer > 3) {
-					beamOBJ.SetActive (false);
+					for (int i = 0; i < 4; i++) {
+						beamOBJ [i].SetActive (false);
+					}
 					Debug.Log ("deacticating");
 					step1 = false;
 					step2 = false;
@@ -136,7 +138,7 @@ public class JuggernautMovement : MonoBehaviour {
 	{
 		//GetComponent<Rigidbody> ().velocity = Vector3.zero;
 		//transform.rotation = Quaternion.identity;
-		int rand = Random.Range (0, points.Length);
+		int rand = Random.Range (0, points.Length - 1);
 		if (points [rand] != prevPoint) {
 			target = points [rand];
 		} else {
@@ -159,7 +161,9 @@ public class JuggernautMovement : MonoBehaviour {
 	void shoot()
 	{
 		step2 = true;
-		beamOBJ.SetActive (true);
+		for (int i = 0; i < 4; i++) {
+			beamOBJ [i].SetActive (true);
+		}
 	}
 
 	public bool checkForPlayer()
