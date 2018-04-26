@@ -11,11 +11,15 @@ public class crouch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(gameObject.transform.GetComponent<Rigidbody>().velocity.y);
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (debug)
         {
-            if (gameObject.transform.localScale.z > 0.5f)
-                gameObject.transform.localScale.Set(gameObject.transform.localScale.x, gameObject.transform.localScale.y - 0.03f, gameObject.transform.localScale.z);
+            Debug.Log(gameObject.transform.GetComponent<Rigidbody>().velocity.y + " down");
+            Debug.Log(gameObject.transform.GetComponent<Rigidbody>().velocity.magnitude + " mph");
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (gameObject.transform.lossyScale.y > 0.5f)
+                gameObject.transform.lossyScale.Set(gameObject.transform.lossyScale.x, gameObject.transform.lossyScale.y - 0.03f, gameObject.transform.lossyScale.z);
         }
         }
 }

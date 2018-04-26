@@ -23,6 +23,7 @@ public class soundRadius : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftShift)) {
 			radius.radius = runSize;
 			isRunning = true;
+            isCrouched = false;
 			timer += Time.deltaTime;
 		} else if(GetComponent<Rigidbody>().velocity != new Vector3(0,0,0)) {
 			radius.radius = walkSize;
@@ -39,7 +40,7 @@ public class soundRadius : MonoBehaviour {
 			timer = 0;
 		}
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.C))
         {
             radius.radius = crouchSize;
             isCrouched = true;
