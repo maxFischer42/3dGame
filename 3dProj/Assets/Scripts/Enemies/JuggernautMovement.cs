@@ -37,6 +37,7 @@ public class JuggernautMovement : MonoBehaviour {
 		Debug.Log (step1 +"" + step2 + "" + step3);
 		timerPlus ();
 		if (!beingUsed) {
+			GetComponentInChildren<Animator> ().SetBool ("iswalking", true);
 			playerVisible = checkForPlayer ();
 			if (playerVisible && playerInRange) {
 				timer = 0;
@@ -49,7 +50,7 @@ public class JuggernautMovement : MonoBehaviour {
 				agent.destination = target.position;
 			}
 		} else {
-
+			GetComponentInChildren<Animator> ().SetBool ("iswalking", false);
 
 			for (int i = 0; i < lights.Length; i++) {
 				lights [i].intensity += 0.1f;
