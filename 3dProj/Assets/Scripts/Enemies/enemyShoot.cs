@@ -35,15 +35,14 @@ public class enemyShoot : MonoBehaviour {
 		laserLine.SetPosition(0, barrelEnd.position);
 		if (Physics.Raycast(rayOrigin,barrelEnd.transform.forward, out hit, range))
 		{
-			laserLine.SetPosition (1, hit.point);
+		//	laserLine.SetPosition (1, hit.point);
 			//Debug.Log (hit.collider.gameObject.name);
-			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer && nav.priorityPlayer)
-			{
+			if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer && nav.priorityPlayer) {
 				audi.Play ();
 				cooldowntimer = 0f;
 				Vector3 direction = GameObject.FindGameObjectWithTag ("Player").transform.position - transform.position;
 				direction *= bulletSpeed;
-				GameObject bulletToSpawn = (GameObject) Instantiate (bullet, transform.position, transform.rotation);
+				GameObject bulletToSpawn = (GameObject)Instantiate (bullet, transform.position, transform.rotation);
 				bulletToSpawn.GetComponent<Rigidbody> ().velocity = direction;
 				Vector3 newDir = Vector3.RotateTowards (transform.forward, direction, 1f, 0.0f);
 				bulletToSpawn.transform.rotation = Quaternion.LookRotation (newDir);

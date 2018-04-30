@@ -43,26 +43,12 @@ public class EnemyNavFollow : MonoBehaviour {
 	{
 		if (Coll.transform == player) {
 			isChasingPoint = false;
-		} else {
-			Vector3 rayOrigin = transform.position;
-			RaycastHit hit;
-			laserLine.SetPosition(0, rayOrigin);
-			if (Physics.Raycast(rayOrigin,GameObject.Find("Player").transform.position - transform.position, out hit, 250f))
-			{
-				laserLine.SetPosition (1, hit.point);
-				if (hit.transform.gameObject.tag == "Player") {
-					priorityPlayer = true;
-					shootScript.enabled = true;
-				}
-			}
 		}
 	}
 
 	void OnTriggerExit(Collider Coll)
 	{
 		if (Coll.transform.name == "footStepRadius") {
-			priorityPlayer = false;
-			shootScript.enabled = false;
 			isChasingPoint = false;
 		}
 	}
