@@ -72,7 +72,7 @@ public class EnemyNavFollow : MonoBehaviour {
 		Vector3 rayOrigin = transform.position;
 		RaycastHit hit;
 		laserLine.SetPosition(0, transform.position);
-		if (Physics.Raycast(rayOrigin,transform.forward, out hit, 999f))
+		if (Physics.Raycast(rayOrigin,transform.forward, out hit))
 		{
 			laserLine.SetPosition (1, GameObject.Find("Player").transform.position);
 			//Debug.Log (hit.collider.gameObject.name);
