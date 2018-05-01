@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 using System.Collections;
+using UnityEngine.PostProcessing;
 
 public class sniperShoot: MonoBehaviour {
 
@@ -38,6 +39,10 @@ public class sniperShoot: MonoBehaviour {
 
 	public int zoom;
 
+	public PostProcessingProfile Def;
+	public PostProcessingProfile inScope;
+	public PostProcessingBehaviour camBeh;
+
 
 	void Start () 
 	{
@@ -48,16 +53,17 @@ public class sniperShoot: MonoBehaviour {
 
 	void Update () 
 	{
-		if (Input.GetButtonDown ("Fire2")) {
+		if (Input.GetButton ("Fire2")) {
 			isScoped = true;
 			scope.enabled = true;
 			Camera.main.fieldOfView = zoom;
+			camBeh.profile = inScope;
 		} else {
 
 				isScoped = false;
 				scope.enabled = false;
 				Camera.main.fieldOfView = 60;
-			
+			camBeh.profile = Def;
 		}
 
 
@@ -84,7 +90,7 @@ public class sniperShoot: MonoBehaviour {
 				Debug.Log (hit.collider.gameObject.name);
 				if(hit.collider.GetComponent<enemyHealthHandler>())
 				{
-					hit.collider.GetComponent<enemyHealthHandler> ().maxHP--;
+					hit.collider.GetComponent<enemyHealthHandler> ().maxHP = 0;
 				}
 			}
 			else
