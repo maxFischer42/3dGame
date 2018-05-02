@@ -10,7 +10,7 @@ public class tiltLook : MonoBehaviour {
 	int recent = 0;
 	public Behaviour[] behavioursToDisable;
 
-//	public Behaviour movementScript;
+	public Behaviour movementScript;
 
 	bool isTilting = false;
 	Vector3 rotationStart;
@@ -41,7 +41,7 @@ public class tiltLook : MonoBehaviour {
 void LeanLeft() 
  {
 		scriptActivate (false);
-		GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody> ().velocity / 2;
+	//	GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody> ().velocity / 2;
      // current Z-rotation
     float currAngle = transform.rotation.eulerAngles.z;
      
@@ -65,7 +65,7 @@ void LeanLeft()
  void LeanRight() 
  {
 		scriptActivate (false);
-		GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody> ().velocity / 2;
+	//	GetComponent<Rigidbody> ().velocity = GetComponent<Rigidbody> ().velocity / 2;
      // current Z-rotation
      float currAngle = transform.rotation.eulerAngles.z;
      
@@ -113,9 +113,10 @@ void LeanBack()
 
 
 	void scriptActivate(bool active){
-		for (int i = 0; i < behavioursToDisable.Length; i++) {
-			behavioursToDisable [i].enabled = active;
-		}
+		//for (int i = 0; i < behavioursToDisable.Length; i++) {
+		//	behavioursToDisable [i].enabled = active;
+		//}
+		movementScript.enabled = active;
 	}
 
 

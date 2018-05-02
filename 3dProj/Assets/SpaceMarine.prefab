@@ -1730,7 +1730,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   isChasingPoint: 0
   lookSpeed: 50
   priorityPlayer: 0
