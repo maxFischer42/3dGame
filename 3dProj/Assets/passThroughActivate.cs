@@ -17,6 +17,7 @@ public class passThroughActivate : MonoBehaviour {
 			for (int i = 0; i < GO.Length; i++) {
 				GO [i].SetActive (true);
 			}
+			Destroy (gameObject);
 		}
 	}
 
