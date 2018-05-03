@@ -15,6 +15,7 @@ public class SpawnOnPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         for (int i = 0; i < ok.Length; i++)
         {
 
