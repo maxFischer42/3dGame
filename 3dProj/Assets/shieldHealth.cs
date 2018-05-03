@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shieldHealth : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class shieldHealth : MonoBehaviour {
 	public int hp;
 	public GameObject[] newStuff;
 	public GameObject[] destroyStuff;
+	public bool isFinal;
 
 	public void Update()
 	{
@@ -18,16 +20,18 @@ public class shieldHealth : MonoBehaviour {
 
 	public void explosion()
 	{
-		part.SetActive (true);
-		for(int i = 0; i < newStuff.Length; i++)
-		{
-			newStuff[i].SetActive(true);
+		if (!isFinal) {
+			part.SetActive (true);
+			for (int i = 0; i < newStuff.Length; i++) {
+				newStuff [i].SetActive (true);
+			}
+			for (int i = 0; i < destroyStuff.Length; i++) {
+				destroyStuff [i].SetActive (false);
+			}
+			enabled = false;
+		} else {
+			SceneManager.LoadScene ("endCut");
 		}
-		for(int i = 0; i < destroyStuff.Length; i++)
-		{
-			destroyStuff[i].SetActive(false);
-		}
-		enabled = false;
 	}
 
 

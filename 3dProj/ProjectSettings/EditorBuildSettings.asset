@@ -14,3 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ship_debug.unity
     guid: fb4775ff5bd3bb6499160d949eee80e5
+  - enabled: 1
+    path: Assets/Scenes/endCut.unity
+    guid: 81faba464a9faad4f8ceb71619e45b45
+  - enabled: 1
+    path: Assets/ship1GO.unity
+    guid: 2c0b1d34a8f66ef4eb1b3c8afb5b4d64
+  - enabled: 1
+    path: Assets/ship2GO.unity
+    guid: a3a138ee5904f654c84fcd88140bc177

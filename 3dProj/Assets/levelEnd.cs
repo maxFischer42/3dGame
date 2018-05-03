@@ -11,6 +11,7 @@ public class levelEnd : MonoBehaviour {
 	public Camera cam;
 	public GameObject group;
 
+
 	void OnTriggerEnter(Collider coll)
 	{
 		if(coll.gameObject.name == "Player")

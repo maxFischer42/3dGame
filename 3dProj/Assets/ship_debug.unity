@@ -4104,15 +4104,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7f86e4f4770f384ab6710e212ad7759, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.0000004523031
+      value: 359.7317
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7f86e4f4770f384ab6710e212ad7759, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.05595334
+      value: 0.000000461257
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7f86e4f4770f384ab6710e212ad7759, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.0000008772237
+      value: 0.000004513867
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7f86e4f4770f384ab6710e212ad7759, type: 3}
@@ -69858,9 +69858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9416d8a08a91e5458eb282a72b8dbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: level3
-  GO: 
+  level: level2
+  GO: ship1GO
   good: BigNoyShip
+  levelName: level2
 --- !u!114 &1541682272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97290,7 +97291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1844626891
 Transform:
   m_ObjectHideFlags: 0
@@ -98326,7 +98327,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1955831148}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -98342,20 +98343,34 @@ PlayableDirector:
     value: {fileID: 1638837202}
   - key: {fileID: 114495177378576282, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
     value: {fileID: 2124296652}
-  - key: {fileID: 114434784651078494, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 114990839810262238, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 114939149573982702, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114184536068289702, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114999244659634086, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114413692184553184, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114544489454837370, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114387772854526060, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
+    value: {fileID: 1955831148}
+  - key: {fileID: 114572573821865896, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
+    value: {fileID: 1844626890}
+  - key: {fileID: 114923846869755732, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
+    value: {fileID: 1649689358}
+  - key: {fileID: 114902350721335866, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
+    value: {fileID: 2124296652}
+  - key: {fileID: 114991227591901062, guid: 885b2173820668e41ae4cdd05b0647a6, type: 2}
+    value: {fileID: 1638837202}
   m_ExposedReferences:
     m_References: []
 --- !u!81 &1955831152
