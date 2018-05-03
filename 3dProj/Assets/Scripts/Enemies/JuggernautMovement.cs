@@ -47,9 +47,10 @@ public class JuggernautMovement : MonoBehaviour {
 				if (target == null) {
 					target = points [0];
 				}
-				agent.destination = target.position;
+				
 			}
-		} else {
+            agent.destination = target.position;
+        } else {
 			GetComponentInChildren<Animator> ().SetBool ("iswalking", false);
 
 			for (int i = 0; i < lights.Length; i++) {
@@ -157,9 +158,21 @@ public class JuggernautMovement : MonoBehaviour {
 		}
 
 	}
+    //is called when the object reaches a movement point
+    void OnTriggerStay(Collider coll)
+    {
+        if (!beingUsed)
+        {
+            if (coll.gameObject.transform == target.gameObject.transform)
+            {
+                changeTarget();
+            }
+        }
+
+    }
 
 
-	void shoot()
+    void shoot()
 	{
 		step2 = true;
 		for (int i = 0; i < 4; i++) {

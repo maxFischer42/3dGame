@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Area1.unity
     guid: a9373a2adf5cdfa4eb70b75600b42221
   - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: 8d5656a8b5b63fa4e9b5706fdb18473d
+  - enabled: 1
     path: Assets/ship_debug.unity
     guid: fb4775ff5bd3bb6499160d949eee80e5

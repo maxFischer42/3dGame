@@ -7,7 +7,8 @@ public class pressSwitch : MonoBehaviour {
 
 	public Text textObj;
 	public GameObject[] objectsToDeactivate;
-	public string textToDisplay;
+    public GameObject[] objectsToActivate;
+    public string textToDisplay;
 
 	void OnTriggerEnter(Collider coll)
 	{
@@ -38,7 +39,11 @@ public class pressSwitch : MonoBehaviour {
 			{
 				objectsToDeactivate [i].SetActive (false);
 			}
-			Destroy (transform.parent.gameObject);
+            for (int i = 0; i < objectsToActivate.Length; i++)
+            {
+                objectsToActivate[i].SetActive(true);
+            }
+            Destroy (transform.parent.gameObject);
 		}
 	}
 }

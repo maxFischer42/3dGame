@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class loadLevel : MonoBehaviour {
 
 	public string level;
+	public string GO;
+	public string good;
 
-	void OnTriggerEnter(Collider col)
+	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Player") {
-			SceneManager.LoadScene (level);
+		if (col.gameObject.tag == good) {
+			SceneManager.LoadScene (level);	
+		} else {
+			SceneManager.LoadScene (GO);	
 		}
 	}
 

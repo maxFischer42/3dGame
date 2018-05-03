@@ -31,8 +31,9 @@ public class EnemyNavFollow : MonoBehaviour {
 				Vector3 targetDir = player.position - transform.position;
 				float step = lookSpeed * Time.deltaTime;
 				Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0.0f);
-				agent.destination = player.position;
+
 			}
+			agent.destination = player.position;
 		}
 		if (priorityPlayer) {
 			player = null;

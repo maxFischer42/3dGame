@@ -1154,7 +1154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342435197589920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2023244, y: 0.15101421, z: 11.455}
+  m_LocalPosition: {x: 31.710476, y: -7.841614, z: -115.470856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4946825392325802}
@@ -1529,8 +1529,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9afd6cc7134a3428cb7606e918101f8f, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrelEnd: {fileID: 4577015512357340}
   laserLine: {fileID: 120845710335311414}
-  range: 25
+  range: 14
   bullet: {fileID: 1883747415685542, guid: 59dcca691aacb184eaec9340d91af5c1, type: 2}
   bulletSpeed: 5
   coolDown: 2
@@ -1751,7 +1751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   points:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   isChasingPoint: 0
@@ -3137,7 +3136,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1342435197589920}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

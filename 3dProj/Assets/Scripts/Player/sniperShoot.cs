@@ -43,6 +43,8 @@ public class sniperShoot: MonoBehaviour {
 	public PostProcessingProfile inScope;
 	public PostProcessingBehaviour camBeh;
 
+	public GameObject prefToSpawn;
+
 
 	void Start () 
 	{
@@ -88,8 +90,9 @@ public class sniperShoot: MonoBehaviour {
 
 				laserLine.SetPosition (1, hit.point);
 				Debug.Log (hit.collider.gameObject.name);
-				if(hit.collider.GetComponent<enemyHealthHandler>())
-				{
+				GameObject part = (GameObject)Instantiate (prefToSpawn, hit.point,Quaternion.identity);
+				Destroy (part, 3f);
+				if (hit.collider.GetComponent<enemyHealthHandler> ()) {
 					hit.collider.GetComponent<enemyHealthHandler> ().maxHP = 0;
 				}
 			}

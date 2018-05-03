@@ -8,6 +8,7 @@ TagManager:
   - Damage
   - Door
   - ShieldGenPoint
+  - BigNoyShip
   layers:
   - Default
   - TransparentFX
