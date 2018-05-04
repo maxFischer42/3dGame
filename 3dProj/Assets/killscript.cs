@@ -8,13 +8,14 @@ public class killscript : MonoBehaviour {
 
 	private float playerHp;
 	public playerHealthHandler hpScript;
-	public string sceneToLoad;
 
 
 	void Update () {
 		playerHp = hpScript.HP;
-		if (playerHp <= 0) {
-			SceneManager.LoadScene (sceneToLoad);
+		if (playerHp <= 0 && PlayerPrefs.GetString ("save") != "") {
+			SceneManager.LoadScene (PlayerPrefs.GetString ("save"));
+		} else if (playerHp <= 0) {
+			SceneManager.LoadScene ("MainMenu");
 		}
 	}
 

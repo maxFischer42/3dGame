@@ -7,6 +7,7 @@ public class loadScene : MonoBehaviour {
 
 	public string scene;
 	public bool end;
+	public bool gameOver;
 
 	void Awake()
 	{
