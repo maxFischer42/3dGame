@@ -1100,7 +1100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4500810095187084}
   - component: {fileID: 135971132403925528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: footStepRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

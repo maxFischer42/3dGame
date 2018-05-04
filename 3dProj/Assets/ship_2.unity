@@ -8183,7 +8183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level2
-  GO: 
+  GO: ship2GO
   good: BigNoyShip
   levelName: level2
 --- !u!64 &423919965
@@ -38113,7 +38113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436328450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27, y: 45.1, z: -80}
+  m_LocalPosition: {x: 27, y: 45.1, z: 120.22179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 321196498}
@@ -57030,7 +57030,21 @@ PlayableDirector:
   - key: {fileID: 114896150834563392, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
     value: {fileID: 1618881833}
   - key: {fileID: 114813980317090258, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1436328450}
+  - key: {fileID: 0}
+    value: {fileID: 1618881833}
+  - key: {fileID: 114695376329466790, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+    value: {fileID: 321196494}
+  - key: {fileID: 0}
+    value: {fileID: 157752828}
+  - key: {fileID: 114309021690670214, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+    value: {fileID: 1618881833}
+  - key: {fileID: 114407445890118670, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+    value: {fileID: 157752828}
+  - key: {fileID: 114736305698803708, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+    value: {fileID: 893761521}
+  - key: {fileID: 114335305198162970, guid: 9d9930939ca8a884ca9f10159f60bf42, type: 2}
+    value: {fileID: 372942644}
   m_ExposedReferences:
     m_References: []
 --- !u!81 &1618881837

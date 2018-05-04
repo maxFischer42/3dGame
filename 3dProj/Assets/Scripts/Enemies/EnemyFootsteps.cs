@@ -8,6 +8,12 @@ public class EnemyFootsteps : MonoBehaviour {
 	public AudioClip[] footSteps;
 	public float timeBetweenSteps;
 	float timer;
+
+	void Start()
+	{
+		audi = GetComponent<AudioSource> ();
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
