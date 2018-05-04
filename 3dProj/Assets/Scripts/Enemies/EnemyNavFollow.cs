@@ -71,11 +71,12 @@ public class EnemyNavFollow : MonoBehaviour {
 	void check()
 	{
 		Vector3 rayOrigin = transform.position;
+		rayOrigin = new Vector3 (rayOrigin.x, rayOrigin.y + 1, rayOrigin.z);
 		RaycastHit hit;
-		laserLine.SetPosition(0, transform.position);
+		laserLine.SetPosition(0, rayOrigin);
 		if (Physics.Raycast(rayOrigin,transform.forward, out hit))
 		{
-			laserLine.SetPosition (1, GameObject.Find("Player").transform.position);
+			laserLine.SetPosition (1, hit.point);
 			//Debug.Log (hit.collider.gameObject.name);
 			if (hit.transform.gameObject.tag == "Player") {
 				priorityPlayer = true;

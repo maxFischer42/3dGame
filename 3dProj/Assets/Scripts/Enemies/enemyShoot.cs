@@ -32,13 +32,13 @@ public class enemyShoot : MonoBehaviour {
 		cooldowntimer += Time.deltaTime;
 		Vector3 rayOrigin = barrelEnd.position;
 		RaycastHit hit;
-		laserLine.SetPosition(0, barrelEnd.position);
+	//	laserLine.SetPosition(0, barrelEnd.position);
 		//if (Physics.Raycast(rayOrigin,barrelEnd.transform.forward, out hit, range))
 		//{
 		//	laserLine.SetPosition (1, hit.point);
-			//Debug.Log (hit.collider.gameObject.name);
-		//	if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer && nav.priorityPlayer) {
-		if(coolDown <= cooldowntimer && nav.priorityPlayer){
+		//	Debug.Log (hit.collider.gameObject.name);
+			//if (hit.transform.gameObject.tag == "Player" && coolDown <= cooldowntimer && nav.priorityPlayer) {
+			if(coolDown <= cooldowntimer){
 				audi.Play ();
 				cooldowntimer = 0f;
 				Vector3 direction = GameObject.FindGameObjectWithTag ("Player").transform.position - transform.position;
@@ -49,8 +49,8 @@ public class enemyShoot : MonoBehaviour {
 				bulletToSpawn.transform.rotation = Quaternion.LookRotation (newDir);
 				Destroy (bulletToSpawn, 5f);
 			//}
-			//}
-		}
+			}
+
 	}
 
 

@@ -10,7 +10,7 @@ public class doorScript : MonoBehaviour {
 
 	void Update()
 	{
-		Debug.Log(Input.GetButtonDown("Interact"));
+//		Debug.Log(Input.GetButtonDown("Interact"));
 	}
 
 	void OnTriggerEnter(Collider coll){
