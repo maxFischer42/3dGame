@@ -31,10 +31,15 @@ public class EnemyNavFollow : MonoBehaviour {
 				Vector3 targetDir = player.position - transform.position;
 				float step = lookSpeed * Time.deltaTime;
 				Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0.0f);
+               
 
-			}
-			agent.destination = player.position;
-		}
+            }
+            agent.destination = player.position;
+            if (agent.destination == null)
+            {
+                agent.destination = points[0].position;
+            }
+        }
 		if (priorityPlayer) {
 			player = null;
 			agent.destination = transform.position;
@@ -73,16 +78,20 @@ public class EnemyNavFollow : MonoBehaviour {
 		Vector3 rayOrigin = transform.position;
 		rayOrigin = new Vector3 (rayOrigin.x, rayOrigin.y + 1, rayOrigin.z);
 		RaycastHit hit;
-		laserLine.SetPosition(0, rayOrigin);
-		if (Physics.Raycast(rayOrigin,transform.forward, out hit))
+        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+        laserLine.SetPosition(0, rayOrigin);
+		if (Physics.Raycast(rayOrigin,transform.forward, out hit, 200f))
 		{
 			laserLine.SetPosition (1, hit.point);
 			//Debug.Log (hit.collider.gameObject.name);
-			if (hit.transform.gameObject.tag == "Player") {
+			if (hit.collider.transform.gameObject.tag == "Player") {
 				priorityPlayer = true;
 				shootScript.enabled = true;
 				GetComponent<Rigidbody> ().velocity = Vector3.zero;
-			} else {
+                Vector3 targetDir = player.position - transform.position;
+                float step = lookSpeed * 2 * Time.deltaTime;
+                Vector3 newDir = Vector3.RotateTowards(transform.forward, hit.collider.transform.position, step, 0.0f);
+            } else {
 				priorityPlayer = false;
 				shootScript.enabled = false;
 			}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4026552432249404}
   - component: {fileID: 135387145630680398}
   - component: {fileID: 114472885942050886}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AudioListenerActivate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 33101804040260870}
   - component: {fileID: 136937808916835618}
   - component: {fileID: 114656580613391768}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 33971726200524990}
   - component: {fileID: 136712655403064812}
   - component: {fileID: 114591266952035340}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
